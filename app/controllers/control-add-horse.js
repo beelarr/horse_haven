@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 app.controller("addHorseCtrl", function($scope, horseFactory, $location){
     $scope.title = "New Horse";
