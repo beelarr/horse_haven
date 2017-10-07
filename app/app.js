@@ -24,7 +24,6 @@ app.config(['$locationProvider', '$routeProvider', ($locationProvider, $routePro
         templateUrl: 'partials/horses.html',
         controller: 'listCtrl',
         resolve: {isAuth}
-
     })
     .when('horse/newHorse', {
         templateUrl: 'partials/form.html',
@@ -41,5 +40,36 @@ app.config(['$locationProvider', '$routeProvider', ($locationProvider, $routePro
         controller: 'editHorseCtrl',
         reslove: {isAuth}
     })
-        .otherwise('/');
+    .when('/people/adopters', {
+        templateUrl: 'partials/adopters.html',
+        controller: 'peopleCtrl',
+        reslove: {isAuth}
+    })
+    .when('/people/serviceProviders', {
+        templateUrl: 'partials/serviceProviders.html',
+        controller: 'peopleCtrl',
+        reslove: {isAuth}
+    })
+    .when('/horse/:horseId/horseStatus', {
+        templateUrl: 'partials/horseStatus.html',
+        controller: 'detailHorseCtrl',
+        reslove: {isAuth}
+    })
+    .when('/serviceTypes', {
+        templateUrl: 'partials/serviceTypes.html',
+        controller: 'serviceCtrl',
+        reslove: {isAuth}
+    })
+    .when('/boardingTypes', {
+        templateUrl: 'partials/boardingTypes.html',
+        controller: 'boardingCtrl',
+        reslove: {isAuth}
+    })
+    .when('/cases', {
+        templateUrl: 'partials/cases.html',
+        controller: 'caseCtrl',
+        reslove: {isAuth}
+    })
+    .otherwise('/');
+
 }]);
