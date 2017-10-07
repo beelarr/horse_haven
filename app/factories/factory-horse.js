@@ -15,13 +15,14 @@ app.factory("horseFactory", function ($q, $http){
 
 
     const editHorse = (id, obj) => {
-        return $q((resolve, reject) => {
-            let newObj = JSON.stringify(obj);
-            $http.patch(``, newObj)
-                .then((data) => resolve(data))
-                .catch((error) => reject(error))
+        let newObj = JSON.stringify(obj);
+        return $http.patch(``, newObj)
+            .then((data) => {
+                return (data)
+                }, (error) => {
+                console.log('error', error.code, error.message);
                 });
-        };
+    };
 
     return{addHorse, editHorse};
 
