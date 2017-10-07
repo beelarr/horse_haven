@@ -28,9 +28,10 @@ namespace horse_haven_dotnet
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var DB_CONNECTION_STRING = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING");
             // Add framework services.
             services.AddDbContext<WebAPIDataContext>(options => {
-                options.UseNpgsql("<YOUR_CONNECTION_STRING_HERE>", b => b.MigrationsAssembly("WebAPISample"));
+                options.UseNpgsql("${DB_CONNECTION_STRING}", b => b.MigrationsAssembly("WebAPISample"));
             });
             services.AddMvc();
         }
