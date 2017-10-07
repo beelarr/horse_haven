@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
 
 namespace horse_haven_dotnet
 {
@@ -27,7 +28,12 @@ namespace horse_haven_dotnet
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Get the DB connection string from the environment
+            var path = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING");
             // Add framework services.
+            services.AddDbContext<WebAPIDataContext>(options => {
+                options.UseNpgsql("${DB_CONNECTION_STRING}", b => b.MigrationsAssembly("WebAPISample"));
+            });
             services.AddMvc();
         }
 
