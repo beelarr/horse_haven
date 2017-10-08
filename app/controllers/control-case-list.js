@@ -1,26 +1,26 @@
 "use strict";
 
-app.controller("caseList", function($scope, caseFactory, filterFactory, boardingFactory, $rootScope, $location){
-    $scope.title = "Boarding List";
-    $scope.submitButtonText = "Add or Edit Boarding List";
+app.controller("caseList", function($scope, caseFactory, filterFactory, caseFactory, $rootScope, $location){
+    $scope.title = "Case List";
+    $scope.submitButtonText = "Add or Edit Cases";
     $scope.searchText = true;
     $scope.searchText = filterFactory;
-    $scope.boardingTypes = [];
+    $scope.cases = [];
 
-    const showAllBoardingTypes = function () {
-        boardingFactory.getAllBoardingTypes()
-            .then((tasks) => {
-                $scope.boardingTypes = boardingTypes;
-            });
-    };
-
-    $scope.deleteBoardingType = function (id) {
-        boardingFactory.deleteBoardingType(id)
+    const showAllCases = function () {
+        caseFactory.getAllCases()
             .then(() => {
-                showAllBoardingTypes();
-                $location.url("/boardingTypes");
-
+                $scope.cases = cases;
             });
     };
-    showAllBoardingTypes();
+
+    $scope.editCase = function () {
+        caseFactory.editCase()
+            .then((data) => {
+            $scope.case = data
+                $scope.case.id = $routeParams.caseId;
+            });
+    };
+
+    showAllCases();
 });
