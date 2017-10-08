@@ -35,21 +35,21 @@ namespace horse_haven_dotnet.Controllers
 
         // POST api/cases
         [HttpPost]
-        public void Post([FromBody]Case boarding)
+        public void Post([FromBody]Case Case)
         {
-            _webAPIDataContext.Add(boarding);
-            _webAPIDataContext.SaveChangesAsync();
+            _webAPIDataContext.Add(Case);
+            _webAPIDataContext.SaveChanges();
         }
 
         // PUT api/cases/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]Case boarding)
+        public void Put(int id, [FromBody]Case Case)
         {
-            var selectedCase = _webAPIDataContext.Cases.AsNoTracking().FirstOrDefaultAsync(x => x.CaseId == id);
+            var selectedCase = _webAPIDataContext.Cases.AsNoTracking().FirstOrDefault(x => x.CaseId == id);
             if (selectedCase != null)
             {
-                _webAPIDataContext.Entry(selectedCase).Context.Update(boarding);
-                _webAPIDataContext.SaveChangesAsync();
+                _webAPIDataContext.Entry(selectedCase).Context.Update(Case);
+                _webAPIDataContext.SaveChanges();
             }
         }
 
@@ -57,11 +57,11 @@ namespace horse_haven_dotnet.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            var boarding = _webAPIDataContext.Cases.FirstOrDefault(x => x.CaseId == id);
-            if (boarding != null)
+            var Case = _webAPIDataContext.Cases.FirstOrDefault(x => x.CaseId == id);
+            if (Case != null)
             {
-                _webAPIDataContext.Cases.Remove(boarding);
-                _webAPIDataContext.SaveChangesAsync();
+                _webAPIDataContext.Cases.Remove(Case);
+                _webAPIDataContext.SaveChanges();
             }
         }
     }

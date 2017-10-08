@@ -35,21 +35,21 @@ namespace horse_haven_dotnet.Controllers
 
         // POST api/horsestatuses
         [HttpPost]
-        public void Post([FromBody]HorseStatus boarding)
+        public void Post([FromBody]HorseStatus HorseStatus)
         {
-            _webAPIDataContext.Add(boarding);
-            _webAPIDataContext.SaveChangesAsync();
+            _webAPIDataContext.Add(HorseStatus);
+            _webAPIDataContext.SaveChanges();
         }
 
         // PUT api/horsestatuses/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]HorseStatus boarding)
+        public void Put(int id, [FromBody]HorseStatus HorseStatus)
         {
-            var selectedHorseStatus = _webAPIDataContext.HorseStatuses.AsNoTracking().FirstOrDefaultAsync(x => x.HorseStatusId == id);
+            var selectedHorseStatus = _webAPIDataContext.HorseStatuses.AsNoTracking().FirstOrDefault(x => x.HorseStatusId == id);
             if (selectedHorseStatus != null)
             {
-                _webAPIDataContext.Entry(selectedHorseStatus).Context.Update(boarding);
-                _webAPIDataContext.SaveChangesAsync();
+                _webAPIDataContext.Entry(selectedHorseStatus).Context.Update(HorseStatus);
+                _webAPIDataContext.SaveChanges();
             }
         }
 
@@ -57,11 +57,11 @@ namespace horse_haven_dotnet.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            var boarding = _webAPIDataContext.HorseStatuses.FirstOrDefault(x => x.HorseStatusId == id);
-            if (boarding != null)
+            var HorseStatus = _webAPIDataContext.HorseStatuses.FirstOrDefault(x => x.HorseStatusId == id);
+            if (HorseStatus != null)
             {
-                _webAPIDataContext.HorseStatuses.Remove(boarding);
-                _webAPIDataContext.SaveChangesAsync();
+                _webAPIDataContext.HorseStatuses.Remove(HorseStatus);
+                _webAPIDataContext.SaveChanges();
             }
         }
     }

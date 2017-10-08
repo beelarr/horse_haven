@@ -56,21 +56,21 @@ namespace horse_haven_dotnet.Controllers
 
         // POST api/horseweights
         [HttpPost]
-        public void Post([FromBody]HorseWeight service)
+        public void Post([FromBody]HorseWeight HorseWeight)
         {
-            _webAPIDataContext.Add(service);
-            _webAPIDataContext.SaveChangesAsync();
+            _webAPIDataContext.Add(HorseWeight);
+            _webAPIDataContext.SaveChanges();
         }
 
         // PUT api/horseweights/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]HorseWeight service)
+        public void Put(int id, [FromBody]HorseWeight HorseWeight)
         {
-            var selectedHorseWeight = _webAPIDataContext.HorseWeights.AsNoTracking().FirstOrDefaultAsync(x => x.HorseWeightId == id);
+            var selectedHorseWeight = _webAPIDataContext.HorseWeights.AsNoTracking().FirstOrDefault(x => x.HorseWeightId == id);
             if (selectedHorseWeight != null)
             {
-                _webAPIDataContext.Entry(selectedHorseWeight).Context.Update(service);
-                _webAPIDataContext.SaveChangesAsync();
+                _webAPIDataContext.Entry(selectedHorseWeight).Context.Update(HorseWeight);
+                _webAPIDataContext.SaveChanges();
             }
         }
 
@@ -78,11 +78,11 @@ namespace horse_haven_dotnet.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            var service = _webAPIDataContext.HorseWeights.FirstOrDefault(x => x.HorseWeightId == id);
-            if (service != null)
+            var HorseWeight = _webAPIDataContext.HorseWeights.FirstOrDefault(x => x.HorseWeightId == id);
+            if (HorseWeight != null)
             {
-                _webAPIDataContext.HorseWeights.Remove(service);
-                _webAPIDataContext.SaveChangesAsync();
+                _webAPIDataContext.HorseWeights.Remove(HorseWeight);
+                _webAPIDataContext.SaveChanges();
             }
         }
     }
