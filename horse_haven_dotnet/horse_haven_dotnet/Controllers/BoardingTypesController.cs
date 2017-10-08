@@ -35,21 +35,21 @@ namespace horse_haven_dotnet.Controllers
 
         // POST api/boardingtypes
         [HttpPost]
-        public void Post([FromBody]BoardingType boarding)
+        public void Post([FromBody]BoardingType boardingtype)
         {
-            _webAPIDataContext.Add(boarding);
-            _webAPIDataContext.SaveChangesAsync();
+            _webAPIDataContext.Add(boardingtype);
+            _webAPIDataContext.SaveChanges();
         }
 
         // PUT api/boardingtypes/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]BoardingType boarding)
+        public void Put(int id, [FromBody]BoardingType boardingtype)
         {
-            var selectedBoardingType = _webAPIDataContext.BoardingTypes.AsNoTracking().FirstOrDefaultAsync(x => x.BoardingTypeId == id);
+            var selectedBoardingType = _webAPIDataContext.BoardingTypes.AsNoTracking().FirstOrDefault(x => x.BoardingTypeId == id);
             if (selectedBoardingType != null)
             {
-                _webAPIDataContext.Entry(selectedBoardingType).Context.Update(boarding);
-                _webAPIDataContext.SaveChangesAsync();
+                _webAPIDataContext.Entry(selectedBoardingType).Context.Update(boardingtype);
+                _webAPIDataContext.SaveChanges();
             }
         }
 
@@ -57,11 +57,11 @@ namespace horse_haven_dotnet.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            var boarding = _webAPIDataContext.BoardingTypes.FirstOrDefault(x => x.BoardingTypeId == id);
-            if (boarding != null)
+            var boardingtype = _webAPIDataContext.BoardingTypes.FirstOrDefault(x => x.BoardingTypeId == id);
+            if (boardingtype != null)
             {
-                _webAPIDataContext.BoardingTypes.Remove(boarding);
-                _webAPIDataContext.SaveChangesAsync();
+                _webAPIDataContext.BoardingTypes.Remove(boardingtype);
+                _webAPIDataContext.SaveChanges();
             }
         }
     }

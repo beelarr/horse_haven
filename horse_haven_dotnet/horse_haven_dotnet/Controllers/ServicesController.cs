@@ -70,21 +70,21 @@ namespace horse_haven_dotnet.Controllers
 
         // POST api/services
         [HttpPost]
-        public void Post([FromBody]Service service)
+        public void Post([FromBody]Service Service)
         {
-            _webAPIDataContext.Add(service);
-            _webAPIDataContext.SaveChangesAsync();
+            _webAPIDataContext.Add(Service);
+            _webAPIDataContext.SaveChanges();
         }
 
         // PUT api/services/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]Service service)
+        public void Put(int id, [FromBody]Service Service)
         {
-            var selectedService = _webAPIDataContext.Services.AsNoTracking().FirstOrDefaultAsync(x => x.ServiceId == id);
+            var selectedService = _webAPIDataContext.Services.AsNoTracking().FirstOrDefault(x => x.ServiceId == id);
             if (selectedService != null)
             {
-                _webAPIDataContext.Entry(selectedService).Context.Update(service);
-                _webAPIDataContext.SaveChangesAsync();
+                _webAPIDataContext.Entry(selectedService).Context.Update(Service);
+                _webAPIDataContext.SaveChanges();
             }
         }
 
@@ -92,11 +92,11 @@ namespace horse_haven_dotnet.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            var service = _webAPIDataContext.Services.FirstOrDefault(x => x.ServiceId == id);
-            if (service != null)
+            var Service = _webAPIDataContext.Services.FirstOrDefault(x => x.ServiceId == id);
+            if (Service != null)
             {
-                _webAPIDataContext.Services.Remove(service);
-                _webAPIDataContext.SaveChangesAsync();
+                _webAPIDataContext.Services.Remove(Service);
+                _webAPIDataContext.SaveChanges();
             }
         }
     }

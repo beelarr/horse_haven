@@ -22,9 +22,12 @@ app.controller("addHorseCtrl", function($scope, horseFactory, $location){
 
     };
 
+
+
     $scope.submitHorse = function () {
         horseFactory.addHorse($scope.horse)
             .then((data) => {
+
             $location.url("/horses");
 
         });

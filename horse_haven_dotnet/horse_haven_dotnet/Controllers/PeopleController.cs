@@ -52,18 +52,18 @@ namespace horse_haven_dotnet.Controllers
         public void Post([FromBody]Person Person)
         {
             _webAPIDataContext.Add(Person);
-            _webAPIDataContext.SaveChangesAsync();
+            _webAPIDataContext.SaveChanges();
         }
 
         // PUT api/people/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]Person Person)
         {
-            var selectedPerson = _webAPIDataContext.People.AsNoTracking().FirstOrDefaultAsync(x => x.PersonId == id);
+            var selectedPerson = _webAPIDataContext.People.AsNoTracking().FirstOrDefault(x => x.PersonId == id);
             if (selectedPerson != null)
             {
                 _webAPIDataContext.Entry(selectedPerson).Context.Update(Person);
-                _webAPIDataContext.SaveChangesAsync();
+                _webAPIDataContext.SaveChanges();
             }
         }
 
@@ -75,7 +75,7 @@ namespace horse_haven_dotnet.Controllers
             if (Person != null)
             {
                 _webAPIDataContext.People.Remove(Person);
-                _webAPIDataContext.SaveChangesAsync();
+                _webAPIDataContext.SaveChanges();
             }
         }
     }
