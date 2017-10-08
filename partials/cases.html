@@ -1,1 +1,19 @@
-<h5>Here are your cases</h5>
+<h1>Add Case</h2>
+
+    <div>
+        <div class="form-group">
+            <input type="number" class="form-control" ng-model="case.caseId" placeholder="Enter Case ID">
+            <label>Describe Case</label>
+            <textarea class="form-control" ng-model="case.description" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <button ng-click="submitCase(case)" type="button" class="btn btn-primary">Submit Case</button>
+        </div>
+    </div>
+
+    <h1>Case List</h1>
+    <div>
+        <ul class="list-group" ng-repeat="case in caseList">
+            <li class="list-group-item">{{case.caseId}}
+                <p>{{case.description}}</p>
+            </li>
+        </ul>
+    </div>

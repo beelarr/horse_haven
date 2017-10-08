@@ -19,7 +19,6 @@ app.controller("boardingList", function($scope, horseFactory, filterFactory, boa
             .then(() => {
             showAllBoardingTypes();
                 $location.url("/boardingTypes");
-
             });
     };
 
