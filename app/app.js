@@ -17,58 +17,58 @@ let isAuth = (userFactory) => new Promise ((resolve, reject) => {
 app.config(['$locationProvider', '$routeProvider', ($locationProvider, $routeProvider) => {
     $routeProvider
     .when('/login', {
-        templateUrl: 'partials/user.html',
+        templateUrl: '../partials/user.html',
         controller: 'userCtrl'
     })
     .when('/horses', {
-        templateUrl: 'partials/horses.html',
+        templateUrl: '../partials/horses.html',
         controller: 'listCtrl',
-        resolve: {isAuth}
+        // resolve: {isAuth}
     })
-    .when('horse/newHorse', {
-        templateUrl: 'partials/form.html',
+    .when('/horse/newHorse', {
+        templateUrl: '../partials/form.html',
         controller: 'addHorseCtrl',
-        resolve: {isAuth}
+        // resolve: {isAuth}
     })
     .when('/horse/:horseId', {
-        templateUrl: 'partials/details.html',
+        templateUrl: '../partials/details.html',
         controller: 'detailHorseCtrl',
-        resolve: {isAuth}
+        // resolve: {isAuth}
     })
     .when('/horse/:horseId/edit', {
-        templateUrl: 'partials/form.html',
+        templateUrl: '../partials/form.html',
         controller: 'editHorseCtrl',
-        reslove: {isAuth}
+        // reslove: {isAuth}
     })
     .when('/people/adopters', {
-        templateUrl: 'partials/adopters.html',
+        templateUrl: '../partials/adopters.html',
         controller: 'peopleCtrl',
-        reslove: {isAuth}
+        // reslove: {isAuth}
     })
     .when('/people/serviceProviders', {
-        templateUrl: 'partials/serviceProviders.html',
+        templateUrl: '../partials/serviceProviders.html',
         controller: 'peopleCtrl',
-        reslove: {isAuth}
+        // reslove: {isAuth}
     })
     .when('/horse/:horseId/horseStatus', {
-        templateUrl: 'partials/horseStatus.html',
+        templateUrl: '../partials/horseStatus.html',
         controller: 'detailHorseCtrl',
-        reslove: {isAuth}
+        // reslove: {isAuth}
     })
     .when('/serviceTypes', {
-        templateUrl: 'partials/serviceTypes.html',
+        templateUrl: '../partials/serviceTypes.html',
         controller: 'serviceCtrl',
-        reslove: {isAuth}
+        // reslove: {isAuth}
     })
     .when('/boardingTypes', {
-        templateUrl: 'partials/boardingTypes.html',
+        templateUrl: '../partials/boardingTypes.html',
         controller: 'boardingCtrl',
-        reslove: {isAuth}
+        // reslove: {isAuth}
     })
     .when('/cases', {
-        templateUrl: 'partials/cases.html',
+        templateUrl: '../partials/cases.html',
         controller: 'caseCtrl',
-        reslove: {isAuth}
+        // reslove: {isAuth}
     })
     .otherwise('/');
 
