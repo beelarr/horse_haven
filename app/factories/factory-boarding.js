@@ -1,6 +1,7 @@
 "use strict";
 
 app.factory("boardingFactory", function ($q, $http) {
+
     const getAllBoardingTypes = function () {
         let types = [];
         return $http.get(`/api/boardings`)
@@ -8,5 +9,27 @@ app.factory("boardingFactory", function ($q, $http) {
                 //TODO: parse data from db
             })
     };
-    return {getAllBoardingTypes};
+
+    const editBoardingType = (id, obj) => {
+        let newObj = JSON.stringify(obj);
+        return $http.patch(``, newObj)
+            .then((data) => {
+                return (data)
+            }, (error) => {
+                console.log('error', error.code, error.message);
+            });
+    };
+
+    const getSingleBoardingType = function(itemId){
+        return $q((resolve, reject) =>{
+            $http.get(`/api/boardingTypes`)
+                .then((itemObj) => {
+                    resolve(itemObj.data);
+                })
+                .catch((error) => {
+                    reject(error);
+                });
+        });
+    };
+    return {getAllBoardingTypes, editBoardingType, getSingleBoardingType};
 });

@@ -24,6 +24,18 @@ app.factory("horseFactory", function ($q, $http){
                 });
     };
 
-    return{addHorse, editHorse};
+    const getSingleHorse = function(itemId){
+        return $q((resolve, reject) =>{
+            $http.get(`/api/horses`)
+                .then((itemObj) => {
+                    resolve(itemObj.data);
+                })
+                .catch((error) => {
+                    reject(error);
+                });
+        });
+    };
+
+    return{addHorse, editHorse, getSingleHorse};
 
 });
