@@ -99,21 +99,21 @@ namespace horse_haven_dotnet.Controllers
 
         // POST api/horses
         [HttpPost]
-        public void Post([FromBody]Horse horse)
+        public void Post([FromBody]Horse Horse)
         {
-            _webAPIDataContext.Add(horse);
-            _webAPIDataContext.SaveChangesAsync();
+            _webAPIDataContext.Add(Horse);
+            _webAPIDataContext.SaveChanges();
         }
 
         // PUT api/horses/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]Horse horse)
+        public void Put(int id, [FromBody]Horse Horse)
         {
-            var selectedHorse = _webAPIDataContext.Horses.AsNoTracking().FirstOrDefaultAsync(x => x.HorseId == id);
+            var selectedHorse = _webAPIDataContext.Horses.AsNoTracking().FirstOrDefault(x => x.HorseId == id);
             if (selectedHorse != null)
             {
-                _webAPIDataContext.Entry(selectedHorse).Context.Update(horse);
-                _webAPIDataContext.SaveChangesAsync();
+                _webAPIDataContext.Entry(selectedHorse).Context.Update(Horse);
+                _webAPIDataContext.SaveChanges();
             }
         }
 
@@ -121,11 +121,11 @@ namespace horse_haven_dotnet.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            var horse = _webAPIDataContext.Horses.FirstOrDefault(x => x.HorseId == id);
-            if (horse != null)
+            var Horse = _webAPIDataContext.Horses.FirstOrDefault(x => x.HorseId == id);
+            if (Horse != null)
             {
-                _webAPIDataContext.Horses.Remove(horse);
-                _webAPIDataContext.SaveChangesAsync();
+                _webAPIDataContext.Horses.Remove(Horse);
+                _webAPIDataContext.SaveChanges();
             }
         }
     }

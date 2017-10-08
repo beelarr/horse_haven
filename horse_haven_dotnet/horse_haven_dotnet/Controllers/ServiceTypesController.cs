@@ -35,21 +35,21 @@ namespace horse_haven_dotnet.Controllers
 
         // POST api/servicetypes
         [HttpPost]
-        public void Post([FromBody]ServiceType boarding)
+        public void Post([FromBody]ServiceType ServiceType)
         {
-            _webAPIDataContext.Add(boarding);
-            _webAPIDataContext.SaveChangesAsync();
+            _webAPIDataContext.Add(ServiceType);
+            _webAPIDataContext.SaveChanges();
         }
 
         // PUT api/servicetypes/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]ServiceType boarding)
+        public void Put(int id, [FromBody]ServiceType ServiceType)
         {
-            var selectedServiceType = _webAPIDataContext.ServiceTypes.AsNoTracking().FirstOrDefaultAsync(x => x.ServiceTypeId == id);
+            var selectedServiceType = _webAPIDataContext.ServiceTypes.AsNoTracking().FirstOrDefault(x => x.ServiceTypeId == id);
             if (selectedServiceType != null)
             {
-                _webAPIDataContext.Entry(selectedServiceType).Context.Update(boarding);
-                _webAPIDataContext.SaveChangesAsync();
+                _webAPIDataContext.Entry(selectedServiceType).Context.Update(ServiceType);
+                _webAPIDataContext.SaveChanges();
             }
         }
 
@@ -57,11 +57,11 @@ namespace horse_haven_dotnet.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            var boarding = _webAPIDataContext.ServiceTypes.FirstOrDefault(x => x.ServiceTypeId == id);
-            if (boarding != null)
+            var ServiceType = _webAPIDataContext.ServiceTypes.FirstOrDefault(x => x.ServiceTypeId == id);
+            if (ServiceType != null)
             {
-                _webAPIDataContext.ServiceTypes.Remove(boarding);
-                _webAPIDataContext.SaveChangesAsync();
+                _webAPIDataContext.ServiceTypes.Remove(ServiceType);
+                _webAPIDataContext.SaveChanges();
             }
         }
     }

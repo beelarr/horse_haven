@@ -57,18 +57,18 @@ namespace horse_haven_dotnet.Controllers
         public void Post([FromBody]Boarding boarding)
         {
             _webAPIDataContext.Add(boarding);
-            _webAPIDataContext.SaveChangesAsync();
+            _webAPIDataContext.SaveChanges();
         }
 
         // PUT api/boardings/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]Boarding boarding)
         {
-            var selectedBoarding = _webAPIDataContext.Boardings.AsNoTracking().FirstOrDefaultAsync(x => x.BoardingId == id);
+            var selectedBoarding = _webAPIDataContext.Boardings.AsNoTracking().FirstOrDefault(x => x.BoardingId == id);
             if (selectedBoarding != null)
             {
                 _webAPIDataContext.Entry(selectedBoarding).Context.Update(boarding);
-                _webAPIDataContext.SaveChangesAsync();
+                _webAPIDataContext.SaveChanges();
             }
         }
 
@@ -80,7 +80,7 @@ namespace horse_haven_dotnet.Controllers
             if (boarding != null)
             {
                 _webAPIDataContext.Boardings.Remove(boarding);
-                _webAPIDataContext.SaveChangesAsync();
+                _webAPIDataContext.SaveChanges();
             }
         }
     }
