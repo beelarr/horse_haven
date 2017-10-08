@@ -10,15 +10,16 @@ app.controller("addBoardingCtrl", function($scope, boardingFactory, $location){
         rate: ""
     };
 
+
+
     $scope.submitBoardingType() = function () {
         boardingFactory.addBoardingType($scope.boarding)
-            .then(() => {
+            .then((data) => {
 
                 $location.url("/boardingTypes");
 
             });
     }
-
 });
 
 
