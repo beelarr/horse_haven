@@ -1,14 +1,14 @@
 app.factory("caseFactory", function ($q, $http) {
 
     const addCase = (obj) => {
-        return obj;
-        // let newObj = JSON.stringify(obj);
-        // return $http.post(``, newObj)
-        //     .then((data) => {
-        //         return data;
-        //     }, (error) => {
-        //         console.log('error', error.code, error.message);
-        //     });
+        //return obj;
+        let newObj = JSON.stringify(obj);
+        return $http.post(`/api/cases`, newObj)
+            .then((data) => {
+                return data;
+            }, (error) => {
+                console.log('error', error.code, error.message);
+            });
     };
 
 

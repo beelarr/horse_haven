@@ -9,6 +9,7 @@ app.controller("caseCtrl", function ($scope, caseFactory, $location) {
     };
 
     $scope.caseList = [];
+    console.log($scope.caseList, "case list");
 
     const getCaseList = function () {
         $scope.caseList = [
@@ -30,9 +31,9 @@ app.controller("caseCtrl", function ($scope, caseFactory, $location) {
     }
     getCaseList();
 
-    $scope.submitCase = function(Case) {
+    $scope.submitCase = function (Case) {
         console.log(Case);
-        // caseFactory.addCase($scope.case)
+        // caseFactory.addCase(Case)
         //     .then((data) => {
         //         $location.url("/cases");
 
