@@ -1,1 +1,21 @@
-<h5>Here will be your horses</h5>
+<div class="container">
+    <h3 ng-model="title">{{title}}</h3>
+    <!--ng-repeat="horse in horses | filter: searchText.search-->
+    <table class="table table-hover">
+        <tr>
+            <th>Horse Name</th>
+            <th>Arrival Date</th>
+            <th>Case ID</th>
+            <th>Horse Haven ID</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>{{horse.name}}</td>
+            <td>{{horse.arrivalDate}}</td>
+            <td>{{horse.caseId}}</td>
+            <td>{{horse.horseHavenId}}</td>
+            <td> <button type="button" ng-href="#!/horse/{{horse.id}}" class="btn btn-success btn-xs">Details</button></td>
+        </tr>
+    </table>
+    <a ng-href="#!/horse/newHorse"><button type="button" class="btn btn-primary">{{submitButtonText}}</button></a>
+</div>
