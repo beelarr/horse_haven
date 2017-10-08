@@ -72,8 +72,13 @@ app.config(['$locationProvider', '$routeProvider', ($locationProvider, $routePro
     })
     .when('/boardingTypes/:boardingTypeId', {
         templateUrl: '../partials/boardingTypeForm.html',
-        controller: 'boardingList'
+        controller: 'boardingList',
         // reslove: {isAuth}
+    })
+    .when('/boardingTypes/:boardingTypeId/edit', {
+        templateUrl: '../partials/boardingTypeForm.html',
+        controller: 'editBoardingCtrl',
+        //resolve: {isAuth}
     })
     .otherwise('/');
 
