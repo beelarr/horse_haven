@@ -1,7 +1,6 @@
 "use strict";
 
 app.factory("boardingFactory", function ($q, $http) {
-
     const addBoardingType  =  (obj) => {
         let newObj = JSON.stringify(obj);
         return $http.post(``, newObj)
@@ -11,7 +10,7 @@ app.factory("boardingFactory", function ($q, $http) {
                 console.log('error', error.code, error.message);
             });
     };
-
+  
     const getAllBoardingTypes = function () {
         let types = [];
         return $http.get(`/api/boardings`)
@@ -19,7 +18,7 @@ app.factory("boardingFactory", function ($q, $http) {
                 //TODO: parse data from db
             })
     };
-
+  
     const editBoardingType = (id, obj) => {
         let newObj = JSON.stringify(obj);
         return $http.patch(``, newObj)
