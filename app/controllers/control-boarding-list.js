@@ -18,6 +18,8 @@ app.controller("boardingList", function($scope, horseFactory, filterFactory, boa
         boardingFactory.deleteBoardingType(id)
             .then(() => {
             showAllBoardingTypes();
+                $location.url("/boardingTypes");
+
             });
     };
 

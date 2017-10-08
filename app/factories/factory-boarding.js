@@ -2,6 +2,16 @@
 
 app.factory("boardingFactory", function ($q, $http) {
 
+    const addBoardingType  =  (obj) => {
+        let newObj = JSON.stringify(obj);
+        return $http.post(``, newObj)
+            .then((data) => {
+                return data;
+            }, (error) => {
+                console.log('error', error.code, error.message);
+            });
+    };
+
     const getAllBoardingTypes = function () {
         let types = [];
         return $http.get(`/api/boardings`)
@@ -31,5 +41,5 @@ app.factory("boardingFactory", function ($q, $http) {
                 });
         });
     };
-    return {getAllBoardingTypes, editBoardingType, getSingleBoardingType};
+    return {getAllBoardingTypes, editBoardingType, getSingleBoardingType, addBoardingType};
 });
