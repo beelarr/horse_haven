@@ -34,42 +34,42 @@ namespace horse_haven_dotnet.Controllers
         }
 
         // GET api/horses/haven/cmks27lm
-        [HttpGet("/haven/{haven_id}")]
-        public IEnumerable<Horse> GetByHavenId(string haven_id)
+        [HttpGet("/haven/{id}")]
+        public IEnumerable<Horse> GetByHavenId(string id)
         {
-            return _webAPIDataContext.Horses.Where(x => x.HorseHavenId == haven_id);
+            return _webAPIDataContext.Horses.Where(x => x.HorseHavenId == id);
         }
 
         // GET api/horses/case/7
-        [HttpGet("/case/{case_id}")]
-        public IEnumerable<Horse> GetByCase(int case_id)
+        [HttpGet("/case/{id}")]
+        public IEnumerable<Horse> GetByCase(int id)
         {
-            return _webAPIDataContext.Horses.Where(x => x.CaseId == case_id);
+            return _webAPIDataContext.Horses.Where(x => x.CaseId == id);
         }
 
         // GET api/horses/adopter/7
-        [HttpGet("/adopter/{adopter_id}")]
-        public IEnumerable<Horse> GetByAdopter(int adopter_id)
+        [HttpGet("/adopter/{id}")]
+        public IEnumerable<Horse> GetByAdopter(int id)
         {
-            return _webAPIDataContext.Horses.Where(x => x.AdopterId == adopter_id);
+            return _webAPIDataContext.Horses.Where(x => x.AdopterId == id);
         }
 
         // GET api/horses/status/7
-        [HttpGet("/status/{status_id}")]
-        public IEnumerable<Horse> GetByStatus(int status_id)
+        [HttpGet("/status/{id}")]
+        public IEnumerable<Horse> GetByStatus(int id)
         {
-            return _webAPIDataContext.Horses.Where(x => x.HorseStatusId == status_id);
+            return _webAPIDataContext.Horses.Where(x => x.HorseStatusId == id);
         }
 
         // GET api/horses/current_boarding_type/7
-        [HttpGet("/current_boarding_type/{boarding_type_id}")]
-        public IEnumerable<Horse> GetByCurrentBoardingType(int boarding_type_id)
+        [HttpGet("/current_boarding_type/{id}")]
+        public IEnumerable<Horse> GetByCurrentBoardingType(int id)
         {
             DateTime now = DateTime.UtcNow;
             return _webAPIDataContext.Boardings.Where
                 (
                     x => x.EndDate == null
-                    && x.BoardingTypeId == boarding_type_id
+                    && x.BoardingTypeId == id
                     && x.StartDate <= now
                 ).Include(b => b.Horse).Select(h => h.Horse);
         }
