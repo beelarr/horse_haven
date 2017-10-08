@@ -56,7 +56,7 @@ app.config(['$locationProvider', '$routeProvider', ($locationProvider, $routePro
         // reslove: {isAuth}
     })
     .when('/serviceTypes', {
-        templateUrl: '../partials/serviceTypes.html',
+        templateUrl: '../partials/typesOfService.html',
         controller: 'serviceCtrl',
         // reslove: {isAuth}
     })

@@ -21,18 +21,18 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a ng-show="isLoggedIn" ng-href="#!/horses">Show All Horses</a></li>
                 <li><a ng-show="isLoggedIn" ng-href="#!/horse/newHorse">Add Horse</a></li>
+                <!--<ul class="dropdown-menu">-->
+                    <li><a ng-show="isLoggedIn" ng-href="#!/people/serviceProviders">Service Providers</a></li>
+                    <li><a ng-show="isLoggedIn" ng-href="#!/people/adopters">Adopters</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a ng-show="isLoggedIn" ng-href="#!/horse/:horseId/horseStatus">Horse Status</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a ng-show="isLoggedIn" ng-href="#!/serviceTypes">Service Types</a></li>
+                    <li><a ng-show="isLoggedIn" ng-href="#!/boardingTypes">Boarding Types</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a ng-show="isLoggedIn" ng-href="#!/cases">Cases</a></li>
                 <li><a ng-show="!isLoggedIn">Login</a></li>
                 <li><a ng-show="isLoggedIn" ng-click="logout()">Logout</a></li>
-                <!--<ul class="dropdown-menu">-->
-                    <li><a ng-show="isLoggedIn" href="#">Service Providers</a></li>
-                    <li><a ng-show="isLoggedIn" href="#">Adopters</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a ng-show="isLoggedIn" href="#">Horse Status</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a ng-show="isLoggedIn" href="#">Service Types</a></li>
-                    <li><a ng-show="isLoggedIn" href="#">Boarding Types</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a ng-show="isLoggedIn" href="#">Cases</a></li>
                 <!--</ul>-->
             </ul>
         </div><!-- /.navbar-collapse -->
