@@ -23,5 +23,11 @@ namespace horse_haven_dotnet
         public DbSet<PersonType> PersonTypes { get; set; }
         public DbSet<Service> Services { get; set; }
         public DbSet<ServiceType> ServiceTypes { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Boarding>()
+                .HasOne(b => b.BoardingType);
+        }
     }
 }

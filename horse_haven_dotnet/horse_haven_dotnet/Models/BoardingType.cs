@@ -10,5 +10,6 @@ namespace horse_haven_dotnet.Models
         public int BoardingTypeId { get; set; }
         public decimal DailyRate { get; set; }
         public string Description { get; set; }
+        public List<Boarding> Boardings { get; set; }
     }
 }

@@ -13,7 +13,8 @@ namespace horse_haven_dotnet.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
             modelBuilder
-                .HasAnnotation("ProductVersion", "1.0.4");
+                .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn)
+                .HasAnnotation("ProductVersion", "1.1.2");
 
             modelBuilder.Entity("horse_haven_dotnet.Models.Boarding", b =>
                 {
@@ -214,12 +215,12 @@ namespace horse_haven_dotnet.Migrations
             modelBuilder.Entity("horse_haven_dotnet.Models.Boarding", b =>
                 {
                     b.HasOne("horse_haven_dotnet.Models.BoardingType", "BoardingType")
-                        .WithMany()
+                        .WithMany("Boardings")
                         .HasForeignKey("BoardingTypeId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("horse_haven_dotnet.Models.Horse", "Horse")
-                        .WithMany()
+                        .WithMany("Boardings")
                         .HasForeignKey("HorseId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
@@ -232,12 +233,12 @@ namespace horse_haven_dotnet.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("horse_haven_dotnet.Models.Case", "Case")
-                        .WithMany()
+                        .WithMany("Horses")
                         .HasForeignKey("CaseId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("horse_haven_dotnet.Models.HorseStatus", "HorseStatus")
-                        .WithMany()
+                        .WithMany("Horses")
                         .HasForeignKey("HorseStatusId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
@@ -245,7 +246,7 @@ namespace horse_haven_dotnet.Migrations
             modelBuilder.Entity("horse_haven_dotnet.Models.HorseWeight", b =>
                 {
                     b.HasOne("horse_haven_dotnet.Models.Horse", "Horse")
-                        .WithMany()
+                        .WithMany("Weighings")
                         .HasForeignKey("HorseId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
@@ -253,7 +254,7 @@ namespace horse_haven_dotnet.Migrations
             modelBuilder.Entity("horse_haven_dotnet.Models.Person", b =>
                 {
                     b.HasOne("horse_haven_dotnet.Models.PersonType", "PersonType")
-                        .WithMany()
+                        .WithMany("People")
                         .HasForeignKey("PersonTypeId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
@@ -261,7 +262,7 @@ namespace horse_haven_dotnet.Migrations
             modelBuilder.Entity("horse_haven_dotnet.Models.Service", b =>
                 {
                     b.HasOne("horse_haven_dotnet.Models.Horse", "Horse")
-                        .WithMany()
+                        .WithMany("Services")
                         .HasForeignKey("HorseId")
                         .OnDelete(DeleteBehavior.Cascade);
 
@@ -270,7 +271,7 @@ namespace horse_haven_dotnet.Migrations
                         .HasForeignKey("ServiceProviderId.");
 
                     b.HasOne("horse_haven_dotnet.Models.ServiceType", "ServiceType")
-                        .WithMany()
+                        .WithMany("Services")
                         .HasForeignKey("ServiceTypeId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

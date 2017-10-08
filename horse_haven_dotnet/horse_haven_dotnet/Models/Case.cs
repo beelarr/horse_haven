@@ -9,5 +9,6 @@ namespace horse_haven_dotnet.Models
     {
         public int CaseId { get; set; }
         public string Description { get; set; }
+        public List<Horse> Horses { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace horse_haven_dotnet.Migrations
 {
@@ -13,7 +14,7 @@ namespace horse_haven_dotnet.Migrations
                 columns: table => new
                 {
                     BoardingTypeId = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGeneratedOnAdd", true),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     DailyRate = table.Column<decimal>(nullable: false),
                     Description = table.Column<string>(nullable: true)
                 },
@@ -27,7 +28,7 @@ namespace horse_haven_dotnet.Migrations
                 columns: table => new
                 {
                     CaseId = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGeneratedOnAdd", true),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     Description = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -40,7 +41,7 @@ namespace horse_haven_dotnet.Migrations
                 columns: table => new
                 {
                     HorseStatusId = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGeneratedOnAdd", true),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     Description = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -53,7 +54,7 @@ namespace horse_haven_dotnet.Migrations
                 columns: table => new
                 {
                     PersonTypeId = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGeneratedOnAdd", true),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     Description = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -66,7 +67,7 @@ namespace horse_haven_dotnet.Migrations
                 columns: table => new
                 {
                     ServiceTypeId = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGeneratedOnAdd", true),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     Description = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -79,7 +80,7 @@ namespace horse_haven_dotnet.Migrations
                 columns: table => new
                 {
                     PersonId = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGeneratedOnAdd", true),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     Address = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
                     Name = table.Column<string>(nullable: true),
@@ -102,7 +103,7 @@ namespace horse_haven_dotnet.Migrations
                 columns: table => new
                 {
                     HorseId = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGeneratedOnAdd", true),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     AdopterId = table.Column<int>(nullable: false),
                     Age = table.Column<int>(nullable: false),
                     ArrivalDate = table.Column<DateTime>(nullable: false),
@@ -145,7 +146,7 @@ namespace horse_haven_dotnet.Migrations
                 columns: table => new
                 {
                     BoardingId = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGeneratedOnAdd", true),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     BoardingTypeId = table.Column<int>(nullable: false),
                     EndDate = table.Column<DateTime>(nullable: false),
                     HorseId = table.Column<int>(nullable: false),
@@ -173,7 +174,7 @@ namespace horse_haven_dotnet.Migrations
                 columns: table => new
                 {
                     HorseWeightId = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGeneratedOnAdd", true),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     DateWeighed = table.Column<DateTime>(nullable: false),
                     HorseId = table.Column<int>(nullable: false),
                     Weight = table.Column<decimal>(nullable: false)
@@ -194,7 +195,7 @@ namespace horse_haven_dotnet.Migrations
                 columns: table => new
                 {
                     ServiceId = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGeneratedOnAdd", true),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     CostOfService = table.Column<decimal>(nullable: false),
                     DateOfService = table.Column<DateTime>(nullable: false),
                     Description = table.Column<string>(nullable: true),

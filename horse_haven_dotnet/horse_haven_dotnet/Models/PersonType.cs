@@ -9,5 +9,6 @@ namespace horse_haven_dotnet.Models
     {
         public int PersonTypeId { get; set; }
         public string Description { get; set; }
+        public List<Person> People { get; set; }
     }
 }

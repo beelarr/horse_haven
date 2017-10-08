@@ -30,5 +30,9 @@ namespace horse_haven_dotnet.Models
 
         public int CaseId { get; set; }
         public Case Case { get; set; }
+
+        public List<Boarding> Boardings { get; set; }
+        public List<HorseWeight> Weighings { get; set; }
+        public List<Service> Services { get; set; }
     }
 }

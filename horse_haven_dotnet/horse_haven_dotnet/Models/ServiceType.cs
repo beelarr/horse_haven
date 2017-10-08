@@ -9,5 +9,6 @@ namespace horse_haven_dotnet.Models
     {
         public int ServiceTypeId { get; set; }
         public string Description { get; set; }
+        public List<Service> Services { get; set; }
     }
 }
