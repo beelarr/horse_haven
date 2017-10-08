@@ -36,6 +36,18 @@ app.factory("horseFactory", function ($q, $http){
         });
     };
 
-    return{addHorse, editHorse, getSingleHorse};
+    const getAllHorses = function () {
+        let horses = [];
+        return $http.get(`api/horses`)
+            .then((itemObject) => {
+
+                resolve(horses)
+            })
+            .catch((error) => {
+            console.log(error.number, error.message);
+            })
+    };
+
+    return{addHorse, editHorse, getSingleHorse, getAllHorses};
 
 });

@@ -1,6 +1,9 @@
 app.controller("listCtrl", function ($scope, horseFactory, userFactory, filterFactory, $rootScope ) {
+    $scope.title = "Horse List";
+    $scope.submitButtonText = "Add a new Horse";
+
     $scope.horses = [];
-    let user = userFactory.getCurrentUSer();
+    // let user = userFactory.getCurrentUser();
     $rootScope.searchText = true;
     $scope.searchText = filterFactory;
 
@@ -12,7 +15,7 @@ app.controller("listCtrl", function ($scope, horseFactory, userFactory, filterFa
     };
 
     $scope.deleteHorse = function (id) {
-        todoFactory.deleteHorse(id)
+        horseFactory.deleteHorse(id)
             .then(() => {
             showAllHorses();
             });
