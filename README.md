@@ -18,7 +18,7 @@ Built With
 
 ## Authors
 
-[Ryan Tanay](https://github.com/NewEvolution)
+[Ryan Tanay](https://github.com/NewEvolution) - Team Lead
  
 [Malcolm Ford](https://github.com/MalcolmFord)
 
