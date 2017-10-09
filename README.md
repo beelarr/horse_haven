@@ -1,6 +1,6 @@
-#Code for a Cause: Horse Haven
+# Code for a Cause: Horse Haven
 
-####[Horse Haven of Tennessee](www.horsehaventn.org)
+#### [Horse Haven of Tennessee](www.horsehaventn.org)
 
 
 Horse Haven of Tennessee serves the state by rescuing equine that are either neglected or abused. They need a web app that will serve as a management system and database for horses collected, expenses, court documentation, and adoption program.
@@ -16,7 +16,7 @@ Built With
 * C#
 * ProgreSQL
 
-##Authors
+## Authors
 
 [Ryan Tanay](https://github.com/NewEvolution)
  
@@ -26,7 +26,7 @@ Built With
 
 [Geoff Webb](https://github.com/webbdm)
 
-###Acknowledgments
+### Acknowledgments
 
 [LBMC](www.lmbc.com) for the opportunity to help a local nonprofit.
 
