@@ -1,4 +1,4 @@
-# Code for a Cause: Horse Haven
+# [Code for a Cause: Horse Haven](http://www.codefornashville.org/#home)
 
 #### [Horse Haven of Tennessee](www.horsehaventn.org)
 
