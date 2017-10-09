@@ -28,5 +28,5 @@ Built With
 
 ### Acknowledgments
 
-[LBMC](http://www.lmbc.com) for the opportunity to help a local nonprofit.
+[LBMC](http://www.lbmc.com/) for the opportunity to help a local nonprofit.
 
